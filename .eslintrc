@@ -1,0 +1,10 @@
+{
+	"env": {
+		"node": true,
+		"browser": true
+	},
+	"rules": {
+		"quotes": [0],
+		"eol-last": [0]
+	}
+}
