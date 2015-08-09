@@ -2,6 +2,10 @@ import React from 'react';
 
 export default class Note extends React.Component {
 	render() {
-		return <div>Learn webpack</div>;
+		return (
+			<div>
+				<strong>Learn</strong> <em>webpack</em> without having to refesh the page!
+			</div>
+		);
 	}
 }

@@ -47,7 +47,7 @@ var common = {
 				loaders: [
 					{
 						test: /\.jsx?$/,
-						loaders: ['babel?stage=1'],
+						loaders: ['react-hot', 'babel?stage=1'],
 						include: pathTo('app')
 					}
 				]
