@@ -12,6 +12,9 @@ function pathTo(rel) {
 
 var common = {
 	entry: pathTo('app/main'),
+	resolve: { // this seems to do... ???
+		extensions: ['', '.js', '.jsx'] // to enable React
+	},
 	output: {
 		path: pathTo('build'),
 		filename: 'bundle.js'
@@ -39,7 +42,16 @@ var common = {
 
 	if (TARGET === 'dev') {
 		module.exports = merge(base, {
-			devtool: 'eval' // this adds sourcemaps apparently
+			devtool: 'eval', // this adds sourcemaps apparently
+			module: { // merge seems to do deep merging
+				loaders: [
+					{
+						test: /\.jsx?$/,
+						loaders: ['babel?stage=1'],
+						include: pathTo('app')
+					}
+				]
+			} // end add Babel loader
 		});
 	}
 }(module, common));
