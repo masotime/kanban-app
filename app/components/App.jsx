@@ -20,7 +20,15 @@ export default class App extends React.Component {
 	}
 
 	onEdit(noteId, task) {
-		console.log('Note %s is now %s', noteId, task);
+		// the immutable way
+		this.setState({
+			notes: this.state.notes.map( note => {
+				return {
+					id: note.id,
+					task: note.id === noteId ? task : note.task
+				};
+			}).reduce( (acc, note) => acc.concat(note.task.trim().length > 0 ? [note] : []), [])
+		});
 	}
 
 	render() {
